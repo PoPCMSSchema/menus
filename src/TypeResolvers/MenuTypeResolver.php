@@ -2,7 +2,7 @@
 namespace PoP\Menus\TypeResolvers;
 
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
-use PoP\Menus\TypeDataResolvers\MenuTypeDataResolver;
+use PoP\Menus\TypeDataLoaders\MenuTypeDataLoader;
 
 class MenuTypeResolver extends AbstractTypeResolver
 {
@@ -20,9 +20,9 @@ class MenuTypeResolver extends AbstractTypeResolver
         return $cmsmenusresolver->getMenuTermId($menu);
     }
 
-    public function getTypeDataResolverClass(): string
+    public function getTypeDataLoaderClass(): string
     {
-        return MenuTypeDataResolver::class;
+        return MenuTypeDataLoader::class;
     }
 }
 

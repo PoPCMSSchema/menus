@@ -1,9 +1,9 @@
 <?php
-namespace PoP\Menus\TypeDataResolvers;
+namespace PoP\Menus\TypeDataLoaders;
 
-use PoP\ComponentModel\TypeDataResolvers\AbstractTypeDataResolver;
+use PoP\ComponentModel\TypeDataLoaders\AbstractTypeDataLoader;
 
-class MenuItemTypeDataResolver extends AbstractTypeDataResolver
+class MenuItemTypeDataLoader extends AbstractTypeDataLoader
 {
     public function resolveObjectsFromIDs(array $ids): array
     {

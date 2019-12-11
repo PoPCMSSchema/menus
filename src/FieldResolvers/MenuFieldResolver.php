@@ -6,8 +6,7 @@ use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\Schema\TypeCastingHelpers;
 use PoP\Menus\TypeResolvers\MenuItemTypeResolver;
 use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\Menus\FieldResolvers\MenuItemFieldResolver;
-use PoP\Menus\TypeDataResolvers\MenuItemTypeDataResolver;
+use PoP\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
@@ -51,9 +50,9 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
             case 'items':
                 // Load needed values for the menu-items
                 $instanceManager = InstanceManagerFacade::getInstance();
-                $menuItemTypeDataResolver = $instanceManager->getInstance(MenuItemTypeDataResolver::class);
+                $menuItemTypeDataLoader = $instanceManager->getInstance(MenuItemTypeDataLoader::class);
                 $menuID = $cmsmenusresolver->getMenuTermId($menu);
-                $items = $menuItemTypeDataResolver->resolveObjectsFromIDs([$menuID])[0];
+                $items = $menuItemTypeDataLoader->resolveObjectsFromIDs([$menuID])[0];
 
                 // Load these item data-fields. If other set needed, create another $field
                 $item_data_fields = array('id', 'title', 'alt', 'classes', 'url', 'target', 'menu-item-parent', 'object-id', 'additional-attrs');
