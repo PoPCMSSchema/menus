@@ -5,7 +5,7 @@ use PoP\ComponentModel\TypeDataLoaders\AbstractTypeDataLoader;
 
 class MenuTypeDataLoader extends AbstractTypeDataLoader
 {
-    public function resolveObjectsFromIDs(array $ids): array
+    public function getObjects(array $ids): array
     {
         $cmsmenusapi = \PoP\Menus\FunctionAPIFactory::getInstance();
         $ret = array_map(array($cmsmenusapi, 'getNavigationMenuObjectById'), $ids);

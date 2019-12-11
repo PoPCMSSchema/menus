@@ -52,7 +52,7 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
                 $instanceManager = InstanceManagerFacade::getInstance();
                 $menuItemTypeDataLoader = $instanceManager->getInstance(MenuItemTypeDataLoader::class);
                 $menuID = $cmsmenusresolver->getMenuTermId($menu);
-                $items = $menuItemTypeDataLoader->resolveObjectsFromIDs([$menuID])[0];
+                $items = $menuItemTypeDataLoader->getObjects([$menuID])[0];
 
                 // Load these item data-fields. If other set needed, create another $field
                 $item_data_fields = array('id', 'title', 'alt', 'classes', 'url', 'target', 'menu-item-parent', 'object-id', 'additional-attrs');
