@@ -20,7 +20,7 @@ class MenuTypeResolver extends AbstractTypeResolver
         return $cmsmenusresolver->getMenuTermId($menu);
     }
 
-    public function getIdFieldTypeDataResolverClass(): string
+    public function getTypeDataResolverClass(): string
     {
         return MenuTypeDataResolver::class;
     }

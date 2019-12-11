@@ -18,11 +18,5 @@ class MenuItemTypeResolver extends AbstractTypeResolver
         $menu_item = $resultItem;
         return $cmsmenusresolver->getMenuItemId($menu_item);
     }
-
-    public function getIdFieldTypeDataResolverClass(): string
-    {
-        // Not implemented yet, since no need...
-        return null;
-    }
 }
 
