@@ -6,7 +6,7 @@ use PoP\Menus\TypeDataResolvers\MenuTypeDataResolver;
 
 class MenuTypeResolver extends AbstractTypeResolver
 {
-    public const NAME = 'menus';
+    public const NAME = 'Menu';
 
     public function getTypeName(): string
     {

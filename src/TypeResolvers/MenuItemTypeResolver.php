@@ -5,7 +5,7 @@ use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
 class MenuItemTypeResolver extends AbstractTypeResolver
 {
-    public const NAME = 'menu-items';
+    public const NAME = 'MenuItem';
 
     public function getTypeName(): string
     {
