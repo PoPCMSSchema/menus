@@ -1,14 +1,16 @@
 <?php
 namespace PoP\Menus\FieldResolvers;
 
-use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
-use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\ComponentModel\Schema\SchemaDefinition;
-use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
-use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\ComponentModel\Schema\TypeCastingHelpers;
 use PoP\Menus\TypeResolvers\MenuTypeResolver;
+use PoP\ComponentModel\Schema\SchemaDefinition;
+use PoP\ComponentModel\Schema\TypeCastingHelpers;
 use PoP\Menus\TypeResolvers\MenuItemTypeResolver;
+use PoP\Translation\Facades\TranslationAPIFacade;
+use PoP\Menus\FieldResolvers\MenuItemFieldResolver;
+use PoP\Menus\TypeDataResolvers\MenuItemTypeDataResolver;
+use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
+use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
+use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
 
 class MenuFieldResolver extends AbstractDBDataFieldResolver
 {
@@ -44,26 +46,25 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
         $cmsmenusresolver = \PoP\Menus\ObjectPropertyResolverFactory::getInstance();
-        $cmsmenusapi = \PoP\Menus\FunctionAPIFactory::getInstance();
         $menu = $resultItem;
         switch ($fieldName) {
             case 'items':
                 // Load needed values for the menu-items
                 $instanceManager = InstanceManagerFacade::getInstance();
-                $gd_dataload_fieldresolver_menu_items = $instanceManager->getInstance(MenuItemTypeResolver::class);
-                $items = $cmsmenusapi->getNavigationMenuItems($cmsmenusresolver->getMenuTermId($menu));
+                $menuItemTypeDataResolver = $instanceManager->getInstance(MenuItemTypeDataResolver::class);
+                $menuID = $cmsmenusresolver->getMenuTermId($menu);
+                $items = $menuItemTypeDataResolver->resolveObjectsFromIDs([$menuID])[0];
 
                 // Load these item data-fields. If other set needed, create another $field
                 $item_data_fields = array('id', 'title', 'alt', 'classes', 'url', 'target', 'menu-item-parent', 'object-id', 'additional-attrs');
                 $value = array();
                 if ($items) {
+                    $menuItemTypeResolver = $instanceManager->getInstance(MenuItemTypeResolver::class);
                     foreach ($items as $item) {
                         $item_value = array();
                         foreach ($item_data_fields as $item_data_field) {
-                            $item_value[$item_data_field] = $gd_dataload_fieldresolver_menu_items->resolveValue($item, $item_data_field);
+                            $item_value[$item_data_field] = $menuItemTypeResolver->resolveValue($item, $item_data_field, $variables, $expressions, $options);
                         }
-
-                        // $id = $gd_dataload_fieldresolver_menu_items->getId($item);
                         $value[] = $item_value;
                     }
                 }
