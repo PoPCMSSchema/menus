@@ -5,11 +5,11 @@ use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
 class MenuItemTypeResolver extends AbstractTypeResolver
 {
-    public const TYPE_COLLECTION_NAME = 'menu-items';
+    public const NAME = 'menu-items';
 
-    public function getTypeCollectionName(): string
+    public function getTypeName(): string
     {
-        return self::TYPE_COLLECTION_NAME;
+        return self::NAME;
     }
 
     public function getId($resultItem)
@@ -25,4 +25,4 @@ class MenuItemTypeResolver extends AbstractTypeResolver
         return null;
     }
 }
-    
+

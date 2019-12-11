@@ -6,11 +6,11 @@ use PoP\Menus\TypeDataResolvers\MenuTypeDataResolver;
 
 class MenuTypeResolver extends AbstractTypeResolver
 {
-    public const TYPE_COLLECTION_NAME = 'menus';
-    
-    public function getTypeCollectionName(): string
+    public const NAME = 'menus';
+
+    public function getTypeName(): string
     {
-        return self::TYPE_COLLECTION_NAME;
+        return self::NAME;
     }
 
     public function getId($resultItem)
