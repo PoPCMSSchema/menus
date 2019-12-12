@@ -1,6 +1,7 @@
 <?php
 namespace PoP\Menus\TypeResolvers;
 
+use PoP\Translation\Facades\TranslationAPIFacade;
 use PoP\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
@@ -11,6 +12,12 @@ class MenuItemTypeResolver extends AbstractTypeResolver
     public function getTypeName(): string
     {
         return self::NAME;
+    }
+
+    public function getSchemaTypeDescription(): ?string
+    {
+        $translationAPI = TranslationAPIFacade::getInstance();
+        return $translationAPI->__('Items (links, pages, etc) added to a menu', 'menus');
     }
 
     public function getId($resultItem)

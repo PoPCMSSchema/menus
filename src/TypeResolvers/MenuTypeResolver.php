@@ -1,8 +1,9 @@
 <?php
 namespace PoP\Menus\TypeResolvers;
 
-use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 use PoP\Menus\TypeDataLoaders\MenuTypeDataLoader;
+use PoP\Translation\Facades\TranslationAPIFacade;
+use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
 class MenuTypeResolver extends AbstractTypeResolver
 {
@@ -11,6 +12,12 @@ class MenuTypeResolver extends AbstractTypeResolver
     public function getTypeName(): string
     {
         return self::NAME;
+    }
+
+    public function getSchemaTypeDescription(): ?string
+    {
+        $translationAPI = TranslationAPIFacade::getInstance();
+        return $translationAPI->__('Representation of a navigation menu', 'menus');
     }
 
     public function getId($resultItem)
