@@ -10,6 +10,7 @@ use PoP\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
+use PoP\ComponentModel\GeneralUtils;
 
 class MenuFieldResolver extends AbstractDBDataFieldResolver
 {
@@ -62,7 +63,11 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
                     foreach ($items as $item) {
                         $item_value = array();
                         foreach ($item_data_fields as $item_data_field) {
-                            $item_value[$item_data_field] = $menuItemTypeResolver->resolveValue($item, $item_data_field, $variables, $expressions, $options);
+                            $menuItemValue = $menuItemTypeResolver->resolveValue($item, $item_data_field, $variables, $expressions, $options);
+                            if (GeneralUtils::isError($menuItemValue)) {
+                                return $menuItemValue;
+                            }
+                            $item_value[$item_data_field] = $menuItemValue;
                         }
                         $value[] = $item_value;
                     }
