@@ -20,7 +20,7 @@ class MenuTypeResolver extends AbstractTypeResolver
         return $translationAPI->__('Representation of a navigation menu', 'menus');
     }
 
-    public function getId($resultItem)
+    public function getID($resultItem)
     {
         $cmsmenusresolver = \PoP\Menus\ObjectPropertyResolverFactory::getInstance();
         $menu = $resultItem;
