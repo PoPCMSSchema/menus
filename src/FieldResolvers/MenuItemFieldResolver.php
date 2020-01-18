@@ -23,9 +23,9 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
             'url',
             'classes',
             'target',
-            'additional-attrs',
-            'object-id',
-            'menu-item-parent',
+            'additionalAttrs',
+            'objectID',
+            'menuItemParent',
         ];
     }
 
@@ -37,9 +37,9 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
             'url' => SchemaDefinition::TYPE_URL,
             'classes' => SchemaDefinition::TYPE_STRING,
             'target' => SchemaDefinition::TYPE_STRING,
-            'additional-attrs' => SchemaDefinition::TYPE_STRING,
-            'object-id' => SchemaDefinition::TYPE_ID,
-            'menu-item-parent' => SchemaDefinition::TYPE_ID,
+            'additionalAttrs' => SchemaDefinition::TYPE_STRING,
+            'objectID' => SchemaDefinition::TYPE_ID,
+            'menuItemParent' => SchemaDefinition::TYPE_ID,
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
@@ -53,9 +53,9 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
             'url' => $translationAPI->__('', ''),
             'classes' => $translationAPI->__('', ''),
             'target' => $translationAPI->__('', ''),
-            'additional-attrs' => $translationAPI->__('', ''),
-            'object-id' => $translationAPI->__('', ''),
-            'menu-item-parent' => $translationAPI->__('', ''),
+            'additionalAttrs' => $translationAPI->__('', ''),
+            'objectID' => $translationAPI->__('', ''),
+            'menuItemParent' => $translationAPI->__('', ''),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }
@@ -82,7 +82,7 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
                 $classes[] = 'menu-item';
                 $classes[] = 'menu-item-' . $cmsmenusresolver->getMenuItemId($menu_item);
                 if ($parent = $cmsmenusresolver->getMenuItemParent($menu_item)) {
-                    $classes[] = 'menu-item-parent';
+                    $classes[] = 'menuItemParent';
                     $classes[] = 'menu-item-parent-' . $parent;
                 }
                 if ($object_id = $cmsmenusresolver->getMenuItemObjectId($menu_item)) {
@@ -93,15 +93,15 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
             case 'target':
                 return $cmsmenusresolver->getMenuItemTarget($menu_item);
 
-            case 'additional-attrs':
+            case 'additionalAttrs':
                 // Using the description, because WP does not give a field for extra attributes when creating a menu,
                 // and this is needed to add target="addons" for the Add ContentPost link
                 return $cmsmenusresolver->getMenuItemDescription($menu_item);
 
-            case 'object-id':
+            case 'objectID':
                 return $cmsmenusresolver->getMenuItemObjectId($menu_item);
 
-            case 'menu-item-parent':
+            case 'menuItemParent':
                 return $cmsmenusresolver->getMenuItemParent($menu_item);
         }
 
