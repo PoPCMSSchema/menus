@@ -10,7 +10,7 @@ use PoP\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
-use PoP\ComponentModel\GeneralUtils;
+use PoP\ComponentModel\Misc\GeneralUtils;
 
 class MenuFieldResolver extends AbstractDBDataFieldResolver
 {
