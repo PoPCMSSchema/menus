@@ -11,4 +11,3 @@ class MenuHelpers
         return $cmsmenusresolver->getMenuObjectTermId($menu_object);
     }
 }
-

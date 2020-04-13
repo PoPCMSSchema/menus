@@ -32,4 +32,3 @@ class MenuItemTypeResolver extends AbstractTypeResolver
         return MenuItemTypeDataLoader::class;
     }
 }
-

@@ -32,7 +32,7 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-			'title' => SchemaDefinition::TYPE_STRING,
+            'title' => SchemaDefinition::TYPE_STRING,
             'alt' => SchemaDefinition::TYPE_STRING,
             'url' => SchemaDefinition::TYPE_URL,
             'classes' => SchemaDefinition::TYPE_STRING,
@@ -48,7 +48,7 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-			'title' => $translationAPI->__('', ''),
+            'title' => $translationAPI->__('', ''),
             'alt' => $translationAPI->__('', ''),
             'url' => $translationAPI->__('', ''),
             'classes' => $translationAPI->__('', ''),

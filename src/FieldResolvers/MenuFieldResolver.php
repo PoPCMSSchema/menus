@@ -22,14 +22,14 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
     public static function getFieldNamesToResolve(): array
     {
         return [
-			'items',
+            'items',
         ];
     }
 
     public function getSchemaFieldType(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $types = [
-			'items' => TypeCastingHelpers::makeArray(SchemaDefinition::TYPE_ID),
+            'items' => TypeCastingHelpers::makeArray(SchemaDefinition::TYPE_ID),
         ];
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
@@ -38,7 +38,7 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
     {
         $translationAPI = TranslationAPIFacade::getInstance();
         $descriptions = [
-			'items' => $translationAPI->__('', ''),
+            'items' => $translationAPI->__('', ''),
         ];
         return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($typeResolver, $fieldName);
     }
