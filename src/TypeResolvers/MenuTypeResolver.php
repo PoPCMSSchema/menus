@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace PoP\Menus\TypeResolvers;
 
 use PoP\Menus\TypeDataLoaders\MenuTypeDataLoader;

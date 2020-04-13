@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace PoP\Menus\FieldResolvers;
 
 use PoP\Hooks\Facades\HooksAPIFacade;
@@ -71,10 +74,10 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
 
             case 'alt':
                 return $cmsmenusresolver->getMenuItemTitle($menu_item);
-        
+
             case 'url':
                 return $cmsmenusresolver->getMenuItemUrl($menu_item);
-        
+
             case 'classes':
                 // Copied from nav-menu-template.php function start_el
                 $classes = $cmsmenusresolver->getMenuItemClasses($menu_item);
@@ -89,7 +92,7 @@ class MenuItemFieldResolver extends AbstractDBDataFieldResolver
                     $classes[] = 'menu-item-object-id-' . $object_id;
                 }
                 return join(' ', HooksAPIFacade::getInstance()->applyFilters('menuitem:classes', array_filter($classes), $menu_item, array()));
-            
+
             case 'target':
                 return $cmsmenusresolver->getMenuItemTarget($menu_item);
 
