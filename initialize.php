@@ -1,2 +1,2 @@
 <?php
-\PoP\Menus\Component::init();
+//\PoP\Menus\Component::initialize();
