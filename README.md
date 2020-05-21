@@ -20,12 +20,13 @@ Via Composer
 composer require getpop/menus
 ```
 
-<!--
 ## Usage
 
+Initialize the component:
+
 ``` php
+\PoP\Menus\Component::initialize();
 ```
--->
 
 ## Standards
 
