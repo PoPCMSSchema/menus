@@ -25,7 +25,9 @@ composer require getpop/menus
 Initialize the component:
 
 ``` php
-\PoP\Menus\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\Menus\Component::class,
+]);
 ```
 
 ## Standards
