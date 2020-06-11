@@ -37,6 +37,17 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
         return $types[$fieldName] ?? parent::getSchemaFieldType($typeResolver, $fieldName);
     }
 
+    public function isSchemaFieldResponseNonNullable(TypeResolverInterface $typeResolver, string $fieldName): bool
+    {
+        $nonNullableFieldNames = [
+            'items',
+        ];
+        if (in_array($fieldName, $nonNullableFieldNames)) {
+            return true;
+        }
+        return parent::isSchemaFieldResponseNonNullable($typeResolver, $fieldName);
+    }
+
     public function getSchemaFieldDescription(TypeResolverInterface $typeResolver, string $fieldName): ?string
     {
         $translationAPI = TranslationAPIFacade::getInstance();
