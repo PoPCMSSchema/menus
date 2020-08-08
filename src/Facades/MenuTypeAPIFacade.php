@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\Menus\Facades;
+namespace PoPSchema\Menus\Facades;
 
-use PoP\Menus\TypeAPIs\MenuTypeAPIInterface;
+use PoPSchema\Menus\TypeAPIs\MenuTypeAPIInterface;
 use PoP\Root\Container\ContainerBuilderFactory;
 
 class MenuTypeAPIFacade

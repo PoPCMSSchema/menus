@@ -17,7 +17,7 @@ Adds support for menus
 Via Composer
 
 ``` bash
-composer require getpop/menus
+composer require pop-schema/menus
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Initialize the component:
 
 ``` php
 \PoP\Root\ComponentLoader::initializeComponents([
-    \PoP\Menus\Component::class,
+    \PoPSchema\Menus\Component::class,
 ]);
 ```
 
@@ -75,17 +75,17 @@ If you discover any security related issues, please email leo@getpop.org instead
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/getpop/menus.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/pop-schema/menus.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/getpop/menus/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/getpop/menus.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/getpop/menus.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/getpop/menus.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/pop-schema/menus/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/pop-schema/menus.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/pop-schema/menus.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/pop-schema/menus.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/getpop/menus
-[link-travis]: https://travis-ci.org/getpop/menus
-[link-scrutinizer]: https://scrutinizer-ci.com/g/getpop/menus/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/getpop/menus
-[link-downloads]: https://packagist.org/packages/getpop/menus
+[link-packagist]: https://packagist.org/packages/pop-schema/menus
+[link-travis]: https://travis-ci.org/pop-schema/menus
+[link-scrutinizer]: https://scrutinizer-ci.com/g/pop-schema/menus/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/pop-schema/menus
+[link-downloads]: https://packagist.org/packages/pop-schema/menus
 [link-author]: https://github.com/leoloso
 [link-contributors]: ../../contributors

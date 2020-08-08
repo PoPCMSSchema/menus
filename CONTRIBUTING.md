@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/getpop/menus).
+We accept contributions via Pull Requests on [Github](https://github.com/pop-schema/menus).
 
 
 ## Pull Requests

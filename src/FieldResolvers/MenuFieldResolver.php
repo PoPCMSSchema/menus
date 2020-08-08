@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PoP\Menus\FieldResolvers;
+namespace PoPSchema\Menus\FieldResolvers;
 
-use PoP\Menus\TypeResolvers\MenuTypeResolver;
+use PoPSchema\Menus\TypeResolvers\MenuTypeResolver;
 use PoP\ComponentModel\Schema\SchemaDefinition;
 use PoP\ComponentModel\Schema\TypeCastingHelpers;
-use PoP\Menus\TypeResolvers\MenuItemTypeResolver;
+use PoPSchema\Menus\TypeResolvers\MenuItemTypeResolver;
 use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
+use PoPSchema\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\Facades\Instances\InstanceManagerFacade;
 use PoP\ComponentModel\FieldResolvers\AbstractDBDataFieldResolver;
@@ -59,7 +59,7 @@ class MenuFieldResolver extends AbstractDBDataFieldResolver
 
     public function resolveValue(TypeResolverInterface $typeResolver, $resultItem, string $fieldName, array $fieldArgs = [], ?array $variables = null, ?array $expressions = null, array $options = [])
     {
-        $cmsmenusresolver = \PoP\Menus\ObjectPropertyResolverFactory::getInstance();
+        $cmsmenusresolver = \PoPSchema\Menus\ObjectPropertyResolverFactory::getInstance();
         $menu = $resultItem;
         switch ($fieldName) {
             case 'items':

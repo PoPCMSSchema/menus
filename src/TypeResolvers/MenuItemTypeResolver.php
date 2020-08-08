@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\Menus\TypeResolvers;
+namespace PoPSchema\Menus\TypeResolvers;
 
 use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
+use PoPSchema\Menus\TypeDataLoaders\MenuItemTypeDataLoader;
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
 class MenuItemTypeResolver extends AbstractTypeResolver
@@ -25,7 +25,7 @@ class MenuItemTypeResolver extends AbstractTypeResolver
 
     public function getID($resultItem)
     {
-        $cmsmenusresolver = \PoP\Menus\ObjectPropertyResolverFactory::getInstance();
+        $cmsmenusresolver = \PoPSchema\Menus\ObjectPropertyResolverFactory::getInstance();
         $menuItem = $resultItem;
         return $cmsmenusresolver->getMenuItemId($menuItem);
     }

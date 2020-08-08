@@ -1,5 +1,5 @@
 {
-    "name": "getpop/menus",
+    "name": "pop-schema/menus",
     "type": "library",
     "description": "Adds support for menus",
     "keywords": [
@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PoP\\Menus\\": "src"
+            "PoPSchema\\Menus\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PoP\\Menus\\": "tests"
+            "PoPSchema\\Menus\\": "tests"
         }
     },
     "scripts": {
