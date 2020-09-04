@@ -11,6 +11,10 @@ class MenuTypeAPIFacade
 {
     public static function getInstance(): MenuTypeAPIInterface
     {
-        return ContainerBuilderFactory::getInstance()->get('menu_type_api');
+        /**
+         * @var MenuTypeAPIInterface
+         */
+        $service = ContainerBuilderFactory::getInstance()->get('menu_type_api');
+        return $service;
     }
 }
