@@ -11,7 +11,8 @@ class MenuTypeDataLoader extends AbstractTypeDataLoader
     public function getObjects(array $ids): array
     {
         $cmsmenusapi = \PoPSchema\Menus\FunctionAPIFactory::getInstance();
-        $ret = array_map(array($cmsmenusapi, 'getNavigationMenuObjectById'), $ids);
+        // If the menu doesn't exist, remove the `null` entry
+        $ret = array_filter(array_map(array($cmsmenusapi, 'getNavigationMenuObjectById'), $ids));
         return $ret;
     }
 }
