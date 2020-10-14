@@ -14,7 +14,7 @@ class MenuTypeAPIFacade
         /**
          * @var MenuTypeAPIInterface
          */
-        $service = ContainerBuilderFactory::getInstance()->get('menu_type_api');
+        $service = ContainerBuilderFactory::getInstance()->get(MenuTypeAPIInterface::class);
         return $service;
     }
 }
