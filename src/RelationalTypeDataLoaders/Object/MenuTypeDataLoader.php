@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\Menus\TypeDataLoaders;
+namespace PoPSchema\Menus\RelationalTypeDataLoaders\Object;
 
-use PoP\ComponentModel\TypeDataLoaders\AbstractTypeDataLoader;
+use PoP\ComponentModel\RelationalTypeDataLoaders\Object\AbstractObjectTypeDataLoader;
 use PoPSchema\Menus\Facades\MenuTypeAPIFacade;
 
-class MenuTypeDataLoader extends AbstractTypeDataLoader
+class MenuTypeDataLoader extends AbstractObjectTypeDataLoader
 {
     public function getObjects(array $ids): array
     {

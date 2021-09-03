@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\Menus\TypeDataLoaders;
+namespace PoPSchema\Menus\RelationalTypeDataLoaders\Object;
 
 use PoP\ComponentModel\Instances\InstanceManagerInterface;
-use PoP\ComponentModel\TypeDataLoaders\AbstractTypeDataLoader;
+use PoP\ComponentModel\RelationalTypeDataLoaders\Object\AbstractObjectTypeDataLoader;
 use PoP\Hooks\HooksAPIInterface;
 use PoP\LooseContracts\NameResolverInterface;
 use PoPSchema\Menus\RuntimeRegistries\MenuItemRuntimeRegistryInterface;
 
-class MenuItemTypeDataLoader extends AbstractTypeDataLoader
+class MenuItemTypeDataLoader extends AbstractObjectTypeDataLoader
 {
     public function __construct(
         HooksAPIInterface $hooksAPI,
