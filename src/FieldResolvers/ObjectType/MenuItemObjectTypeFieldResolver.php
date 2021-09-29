@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace PoPSchema\Menus\FieldResolvers\ObjectType;
 
-use Symfony\Contracts\Service\Attribute\Required;
-use PoP\ComponentModel\TypeResolvers\ConcreteTypeResolverInterface;
-use PoP\Engine\TypeResolvers\ScalarType\StringScalarTypeResolver;
-use PoPSchema\SchemaCommons\TypeResolvers\ScalarType\URLScalarTypeResolver;
-use PoP\Engine\TypeResolvers\ScalarType\IDScalarTypeResolver;
 use PoP\ComponentModel\FieldResolvers\ObjectType\AbstractObjectTypeFieldResolver;
 use PoP\ComponentModel\Schema\SchemaTypeModifiers;
+use PoP\ComponentModel\TypeResolvers\ConcreteTypeResolverInterface;
 use PoP\ComponentModel\TypeResolvers\ObjectType\ObjectTypeResolverInterface;
 use PoP\Engine\CMS\CMSHelperServiceInterface;
+use PoP\Engine\TypeResolvers\ScalarType\IDScalarTypeResolver;
+use PoP\Engine\TypeResolvers\ScalarType\StringScalarTypeResolver;
 use PoPSchema\Menus\ObjectModels\MenuItem;
 use PoPSchema\Menus\RuntimeRegistries\MenuItemRuntimeRegistryInterface;
 use PoPSchema\Menus\TypeResolvers\ObjectType\MenuItemObjectTypeResolver;
+use PoPSchema\SchemaCommons\TypeResolvers\ScalarType\URLScalarTypeResolver;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class MenuItemObjectTypeFieldResolver extends AbstractObjectTypeFieldResolver
 {
@@ -71,7 +71,7 @@ class MenuItemObjectTypeFieldResolver extends AbstractObjectTypeFieldResolver
 
     public function getFieldTypeResolver(ObjectTypeResolverInterface $objectTypeResolver, string $fieldName): ConcreteTypeResolverInterface
     {
-        $types = [
+        return match ($fieldName) {
             'children' => $this->menuItemObjectTypeResolver,
             'localURLPath' => $this->stringScalarTypeResolver,
             'label' => $this->stringScalarTypeResolver,
@@ -83,8 +83,8 @@ class MenuItemObjectTypeFieldResolver extends AbstractObjectTypeFieldResolver
             'objectID' => $this->idScalarTypeResolver,
             'parentID' => $this->idScalarTypeResolver,
             'linkRelationship' => $this->stringScalarTypeResolver,
-        ];
-        return $types[$fieldName] ?? parent::getFieldTypeResolver($objectTypeResolver, $fieldName);
+            default => parent::getFieldTypeResolver($objectTypeResolver, $fieldName),
+        };
     }
 
     public function getSchemaFieldTypeModifiers(ObjectTypeResolverInterface $objectTypeResolver, string $fieldName): ?int
@@ -99,7 +99,7 @@ class MenuItemObjectTypeFieldResolver extends AbstractObjectTypeFieldResolver
 
     public function getSchemaFieldDescription(ObjectTypeResolverInterface $objectTypeResolver, string $fieldName): ?string
     {
-        $descriptions = [
+        return match ($fieldName) {
             'children' => $this->translationAPI->__('Menu item children items', 'menus'),
             'label' => $this->translationAPI->__('Menu item label', 'menus'),
             'title' => $this->translationAPI->__('Menu item title', 'menus'),
@@ -111,8 +111,8 @@ class MenuItemObjectTypeFieldResolver extends AbstractObjectTypeFieldResolver
             'objectID' => $this->translationAPI->__('ID of the object linked to by the menu item ', 'menus'),
             'parentID' => $this->translationAPI->__('Menu item\'s parent ID', 'menus'),
             'linkRelationship' => $this->translationAPI->__('Link relationship (XFN)', 'menus'),
-        ];
-        return $descriptions[$fieldName] ?? parent::getSchemaFieldDescription($objectTypeResolver, $fieldName);
+            default => parent::getSchemaFieldDescription($objectTypeResolver, $fieldName),
+        };
     }
 
     /**
