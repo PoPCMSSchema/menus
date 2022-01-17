@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\Menus\FieldResolvers\ObjectType;
+namespace PoPCMSSchema\Menus\FieldResolvers\ObjectType;
 
 use PoP\ComponentModel\FieldResolvers\ObjectType\AbstractObjectTypeFieldResolver;
 use PoP\ComponentModel\Schema\SchemaTypeModifiers;
 use PoP\ComponentModel\TypeResolvers\ConcreteTypeResolverInterface;
 use PoP\ComponentModel\TypeResolvers\ObjectType\ObjectTypeResolverInterface;
-use PoPSchema\SchemaCommons\CMS\CMSHelperServiceInterface;
+use PoPCMSSchema\SchemaCommons\CMS\CMSHelperServiceInterface;
 use PoP\ComponentModel\TypeResolvers\ScalarType\IDScalarTypeResolver;
 use PoP\ComponentModel\TypeResolvers\ScalarType\StringScalarTypeResolver;
-use PoPSchema\Menus\ObjectModels\MenuItem;
-use PoPSchema\Menus\RuntimeRegistries\MenuItemRuntimeRegistryInterface;
-use PoPSchema\Menus\TypeResolvers\ObjectType\MenuItemObjectTypeResolver;
+use PoPCMSSchema\Menus\ObjectModels\MenuItem;
+use PoPCMSSchema\Menus\RuntimeRegistries\MenuItemRuntimeRegistryInterface;
+use PoPCMSSchema\Menus\TypeResolvers\ObjectType\MenuItemObjectTypeResolver;
 use PoPSchema\SchemaCommons\TypeResolvers\ScalarType\URLScalarTypeResolver;
 
 class MenuItemObjectTypeFieldResolver extends AbstractObjectTypeFieldResolver
