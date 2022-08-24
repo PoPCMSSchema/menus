@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PoPCMSSchema\Menus\TypeResolvers\InputObjectType;
 
+use PoP\ComponentModel\TypeResolvers\InputTypeResolverInterface;
 use PoP\ComponentModel\FilterInputs\FilterInputInterface;
 use PoP\ComponentModel\Schema\SchemaTypeModifiers;
 use PoP\ComponentModel\TypeResolvers\ScalarType\StringScalarTypeResolver;
@@ -23,6 +24,7 @@ abstract class AbstractMenusFilterInputObjectTypeResolver extends AbstractObject
     }
     final protected function getStringScalarTypeResolver(): StringScalarTypeResolver
     {
+        /** @var StringScalarTypeResolver */
         return $this->stringScalarTypeResolver ??= $this->instanceManager->getInstance(StringScalarTypeResolver::class);
     }
     final public function setSearchFilterInput(SearchFilterInput $seachFilterInput): void
@@ -31,6 +33,7 @@ abstract class AbstractMenusFilterInputObjectTypeResolver extends AbstractObject
     }
     final protected function getSearchFilterInput(): SearchFilterInput
     {
+        /** @var SearchFilterInput */
         return $this->seachFilterInput ??= $this->instanceManager->getInstance(SearchFilterInput::class);
     }
     final public function setSlugsFilterInput(SlugsFilterInput $slugsFilterInput): void
@@ -39,9 +42,13 @@ abstract class AbstractMenusFilterInputObjectTypeResolver extends AbstractObject
     }
     final protected function getSlugsFilterInput(): SlugsFilterInput
     {
+        /** @var SlugsFilterInput */
         return $this->slugsFilterInput ??= $this->instanceManager->getInstance(SlugsFilterInput::class);
     }
 
+    /**
+     * @return array<string, InputTypeResolverInterface>
+     */
     public function getInputFieldNameTypeResolvers(): array
     {
         return array_merge(

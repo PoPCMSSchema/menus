@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PoPCMSSchema\Menus\TypeResolvers\InputObjectType;
 
+use PoP\ComponentModel\TypeResolvers\InputTypeResolverInterface;
 use PoPCMSSchema\Menus\Constants\MenuOrderBy;
 use PoPCMSSchema\Menus\TypeResolvers\EnumType\MenuOrderByEnumTypeResolver;
 use PoPCMSSchema\SchemaCommons\TypeResolvers\InputObjectType\SortInputObjectTypeResolver;
@@ -18,6 +19,7 @@ class MenuSortInputObjectTypeResolver extends SortInputObjectTypeResolver
     }
     final protected function getMenuOrderByEnumTypeResolver(): MenuOrderByEnumTypeResolver
     {
+        /** @var MenuOrderByEnumTypeResolver */
         return $this->menuSortByEnumTypeResolver ??= $this->instanceManager->getInstance(MenuOrderByEnumTypeResolver::class);
     }
 
@@ -26,6 +28,9 @@ class MenuSortInputObjectTypeResolver extends SortInputObjectTypeResolver
         return 'MenuSortInput';
     }
 
+    /**
+     * @return array<string,InputTypeResolverInterface>
+     */
     public function getInputFieldNameTypeResolvers(): array
     {
         return array_merge(
